@@ -5,7 +5,7 @@ let playerScore = 0;
 let computerScore = 0;
 let playerSelection;
 let computerSelection;
-let message;
+let output;
 
 function computerPlay() {
     return outcome[Math.floor(Math.random() * outcome.length)];
@@ -21,13 +21,14 @@ function computerTotalScore () {
     computerCurrentScore.textContent = computerScore;
 };
 
+let results = document.querySelector('#message');
+
 
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay();
     playerSelection = playerSelection.toLowerCase();
     if (playerSelection == computerSelection) {
-        console.log('No one won! It\'s a tie game!!');
-        console.log(`Computer - ${computerScore}   ${computerSelection} : ${playerSelection}   ${playerScore} - Player`);
+        results.textContent = 'No one won! It\'s a tie game!!';
     } else if (
         (computerSelection == 'paper' && playerSelection == 'scissors') ||
         (computerSelection == 'scissors' && playerSelection == 'rock')  ||
@@ -35,21 +36,19 @@ function playRound(playerSelection, computerSelection) {
         ) {
             playerScore = ++playerScore;
             playerTotalScore();
-            console.log(`You won this round! ${playerSelection} beats ${ computerSelection}!!`);
-            console.log(`Computer - ${computerScore}   ${computerSelection} : ${playerSelection}   ${playerScore} - Player`);
+            results.textContent = `You won this round! ${playerSelection} beats ${ computerSelection}!!`;
         } else {
             computerScore = ++computerScore;
             computerTotalScore();
-            console.log(`You lost this round! ${computerSelection} beats ${playerSelection}!!`)
-            console.log(`Computer - ${computerScore}   ${computerSelection} : ${playerSelection}   ${playerScore} - Player`);
+            results.textContent = `You lost this round! ${computerSelection} beats ${playerSelection}!!`;
         }
 };
 
 function declareWinner () {
     if (playerScore > computerScore) {
-        alert('You won the battle! It was an epic one!')
+        results.textContent = 'You won the battle! It was an epic one!';
     } else {
-        alert('You lost! The Computer won!')
+        results.textContent = 'You lost! The Computer won!';
     }
 };
 
