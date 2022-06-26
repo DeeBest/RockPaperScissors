@@ -5,7 +5,6 @@ let playerScore = 0;
 let computerScore = 0;
 let playerSelection;
 let computerSelection;
-let output;
 
 function computerPlay() {
     return outcome[Math.floor(Math.random() * outcome.length)];
@@ -22,6 +21,7 @@ function computerTotalScore () {
 };
 
 let results = document.querySelector('#message');
+let choices = document.querySelector('#choices');
 
 
 function playRound(playerSelection, computerSelection) {
@@ -29,6 +29,7 @@ function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     if (playerSelection == computerSelection) {
         results.textContent = 'No one won! It\'s a tie game!!';
+        choices.textContent = `Computer: ${computerSelection} ties with Player: ${playerSelection}!!`;
     } else if (
         (computerSelection == 'paper' && playerSelection == 'scissors') ||
         (computerSelection == 'scissors' && playerSelection == 'rock')  ||
@@ -36,11 +37,13 @@ function playRound(playerSelection, computerSelection) {
         ) {
             playerScore = ++playerScore;
             playerTotalScore();
-            results.textContent = `You won this round! ${playerSelection} beats ${ computerSelection}!!`;
+            results.textContent = `You won this round!!`;
+            choices.textContent = `Player: ${playerSelection} beats Computer: ${computerSelection}!!`;
         } else {
             computerScore = ++computerScore;
             computerTotalScore();
-            results.textContent = `You lost this round! ${computerSelection} beats ${playerSelection}!!`;
+            results.textContent = `You lost this round!!`;
+            choices.textContent = `Computer: ${computerSelection} beats Player: ${playerSelection}!!`;
         }
 };
 
