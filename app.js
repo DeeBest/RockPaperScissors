@@ -29,7 +29,7 @@ function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     if (playerSelection == computerSelection) {
         results.textContent = 'No one won! It\'s a tie game!!';
-        choices.textContent = `Computer: ${computerSelection} ties with Player: ${playerSelection}!!`;
+        choices.textContent = `COMPUTER ${computerSelection} ties with PLAYER ${playerSelection}!!`;
     } else if (
         (computerSelection == 'paper' && playerSelection == 'scissors') ||
         (computerSelection == 'scissors' && playerSelection == 'rock')  ||
@@ -38,12 +38,12 @@ function playRound(playerSelection, computerSelection) {
             playerScore = ++playerScore;
             playerTotalScore();
             results.textContent = `You won this round!!`;
-            choices.textContent = `Player: ${playerSelection} beats Computer: ${computerSelection}!!`;
+            choices.textContent = `PLAYER ${playerSelection} beats COMPUTER ${computerSelection}!!`;
         } else {
             computerScore = ++computerScore;
             computerTotalScore();
             results.textContent = `You lost this round!!`;
-            choices.textContent = `Computer: ${computerSelection} beats Player: ${playerSelection}!!`;
+            choices.textContent = `COMPUTER ${computerSelection} beats PLAYER ${playerSelection}!!`;
         }
 };
 
