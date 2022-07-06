@@ -47,7 +47,18 @@ function playRound(playerSelection, computerSelection) {
         }
 };
 
+function myFunction() {
+    let x = document.getElementById("game");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
 function declareWinner () {
+    myFunction();
+    alert("Press F5 to play again!")
     if (playerScore > computerScore) {
         results.textContent = 'You won the battle! It was an epic one!';
     } else {

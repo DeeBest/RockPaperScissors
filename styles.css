@@ -37,6 +37,10 @@ html {
     border: 4px;
     border-style: inset;
 }
+.button:hover {
+    background-color: rgb(66, 28, 40);
+    color: #fff;
+}
 #rock {
     margin-left: 5em;
 }
@@ -70,7 +74,14 @@ html {
 
 }
 #head {
-    text-align: center;
+    /* text-align: center; */
+    display: flex;
+    margin-left: 100px;
+}
+img {
+    margin-left: 200px;
+    border: 2px solid burlywood;
+    border-radius: 20%;
 }
 #introP {
     font-size: 15px;
@@ -80,6 +91,7 @@ html {
     border: 2mm ridge rgba(211, 220, 50, .6);
     margin-right: 20%;
     text-align: center;
+    background-color: azure;
 }
 #playerScoreBox {
     display: flex;
@@ -88,4 +100,8 @@ html {
 #computerScoreBox {
     display: flex;
     margin: 1%;
+}
+#footer {
+    background-color: blanchedalmond;
+    padding: 20px;
 }
